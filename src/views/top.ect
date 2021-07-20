@@ -1,0 +1,46 @@
+<% extend 'layouts/template.ect' %>
+
+<table class="results-categories" height="5%" align="center">
+    <tr>
+        <% for cat, i in @data.categories : %>
+                <td width="<%- 100/@data.categories.length %>%" class="category-button <%- if cat.id == @data.category then 'category-button-selected' %>">
+                    <div class="category-button__link-wrap">
+                        <a class="category-button__link" href=<%- "/stats?mid=#{@data.mid}&cat=#{cat.id}" %>>
+                            <%- cat.name %>
+                        </a>
+                    </div>
+                </td>
+        <% end %>
+    </tr>
+</table>
+<table class="results" height="95%" align="center">
+    <tr class="results__row">
+        <th class="results__column results__column-place">#</th>
+        <th class="results__column"></th>
+        <th class="results__column results__column-cp">CP's</th>
+        <th class="results__column results__column-gc">GC's</th>
+        <th class="results__column results__column-time"></th>
+    </tr>
+    <% for res, i in @data.results : %>
+        <tr class="results__row">
+            <td class="results__column results__column-place"><%= i+1 %></td>
+            <td class="results__column"><%= res.nickname %></td>
+            <td class="results__column results__column-cp"><%= res.checkpoints %></td>
+            <td class="results__column results__column-gc"><%= res.gochecks %></td>
+            <td class="results__column results__column-time"><%= res.besttime %></td>
+        </tr>
+    <% end %>
+    <% if @data.results.length < 15 : %>
+    <!-- This empty row required to fix table rows being stretched on the whole screen, looks bad when there is two entries stretched like that. -->
+    <% for i in [0..(15-@data.results.length-1)]: %>
+        <tr class="results__row">
+            <td class="results__column"><%- i + (@data.results.length+1) %></td>
+            <td class="results__column"></td>
+            <td class="results__column"></td>
+            <td class="results__column"></td>
+            <td class="results__column"></td>
+        </tr> 
+    <% end %>
+    <% end %>
+    
+</table>

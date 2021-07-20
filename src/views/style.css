@@ -1,0 +1,83 @@
+body {
+    font-family: Verdana, sans-serif;   
+    margin: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.results {
+    width: 100%;
+    font-size: 14px;
+}
+
+.results__row {
+    /* height: 6.3333%; */
+}
+.results__column {
+    /* height: 5%; */
+    height: 5%;
+}
+
+.results__column-place {
+    width: 5%;
+}
+
+.results__column-cp {
+    width: 5%;
+}
+
+.results__column-gc {
+    width: 5%;
+}
+
+.results__column-time {
+    width: 10%;
+}
+
+.results, .results th, .results td{ 
+    border: 1px solid lightgray;
+    border-collapse:collapse;
+    text-align:center;
+}
+
+.results-categories {
+    width: 100%;
+    height: 5%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.category-button {
+    padding: 0;
+    border: 1px solid lightgray;
+    border-bottom: 0;
+    margin-left: 10px;
+}
+
+.category-button__link-wrap {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: table;
+}
+.category-button__link {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    padding: 2px;
+    display: table-cell;
+    vertical-align: middle;
+    color: inherit;
+}
+.category-button__link:visited {
+    color: inherit;
+}
+.category-button__link-underline {
+}
+
+.category-button-selected {
+    background-color: lightgrey;
+}

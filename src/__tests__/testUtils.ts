@@ -1,14 +1,6 @@
-import * as mongoose from 'mongoose'
 import * as Koa from 'koa'
 import { Server } from 'http'
 
-export function dropMongo() {
-  return Promise.all(
-    Object.values(mongoose.connection.collections).map((collection) =>
-      collection.deleteMany({})
-    )
-  )
-}
 export function startKoa(
   app: Koa<Koa.DefaultState, Koa.DefaultContext>
 ): Promise<Server> {

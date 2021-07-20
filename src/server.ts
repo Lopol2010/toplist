@@ -1,21 +1,21 @@
-// Setup typegoose
-import { setGlobalOptions, Severity } from '@typegoose/typegoose'
-setGlobalOptions({
-  options: {
-    allowMixed: Severity.ALLOW,
-  },
-})
 import 'module-alias/register'
 import * as dotenv from 'dotenv'
 dotenv.config({ path: `${__dirname}/../.env` })
 import { app } from '@/app'
-import { runMongo } from '@/models/index'
+import { initSqlite } from '@/models/index'
 
-// Run mongo
-runMongo().then(() => {
-  console.log('Mongo connected')
-})
-// Start rest
-app.listen(1337).on('listening', () => {
-  console.log('HTTP is listening on 1337')
-})
+
+
+if(initSqlite() == null) 
+{
+  console.error('sqlite3 init error! server will not start.')
+}
+else
+{
+  // Start rest
+  app.listen(1337).on('listening', () => {
+    console.log('HTTP is listening on 1337')
+  })
+}
+
+

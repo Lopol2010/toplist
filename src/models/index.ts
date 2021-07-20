@@ -1,13 +1,14 @@
-import * as mongoose from 'mongoose'
+import * as sqlite from 'sqlite3'
 
-export function runMongo(mongoUrl = process.env.MONGO) {
-  return mongoose.connect(mongoUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: true,
-  })
+
+export let db: sqlite.Database = null
+export function initSqlite(db_path = process.env.SQLITE_DB) {
+  let sqlite_verbose = sqlite.verbose()
+  db = new sqlite_verbose.Database(db_path, sqlite.OPEN_READONLY);
+  return db
 }
-export function stopMongo() {
-  return mongoose.disconnect()
-}
+
+
+
+
+

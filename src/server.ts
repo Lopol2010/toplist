@@ -14,7 +14,7 @@ else
 {
   // Start rest
   app.listen(process.env.PORT || 1337).on('listening', () => {
-    console.log('HTTP is listening on 1337')
+    console.log('HTTP is listening on ' + process.env.PORT || 1337)
   })
 }
 

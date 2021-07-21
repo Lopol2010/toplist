@@ -8,12 +8,13 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "distribute": "yarn build-ts && node dist/server.js",
-    "develop": "concurrently -i -k -p \"[{name}]\" -n \"Node,TypeScript,Copy-Views\" -c \"yellow.bold,cyan.bold,reset\" \"yarn watch-js\" \"yarn watch-ts\" \"yarn copy-views\"",
+    "distribute": "yarn build-ts && yarn copy-views && node dist/server.js",
+    "develop": "concurrently -i -k -p \"[{name}]\" -n \"Node,TypeScript,Copy-Views\" -c \"yellow.bold,cyan.bold,reset\" \"yarn watch-js\" \"yarn watch-ts\" \"yarn copy-views-dev\"",
     "build-ts": "tsc --skipLibCheck",
     "watch-ts": "tsc -w --skipLibCheck",
     "watch-js": "nodemon dist/server.js",
-    "copy-views": "nodemon -e ect,css --exec \"copyfiles -u 1 src/views/** dist\"",
+    "copy-views-dev": "nodemon -e ect,css --exec \"copyfiles -u 1 src/views/** dist\"",
+    "copy-views": "copyfiles -u 1 src/views/** dist",
     "test": "yarn jest --forceExit"
   },
   "devDependencies": {

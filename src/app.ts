@@ -9,13 +9,6 @@ import StatsController from './controllers/stats'
 var serve = require('koa-static')
 var ECT = require('ect')
 var renderer = ECT({ root : __dirname + '/views', ext : '.ect', watch: true })
-// var views = require('koa-views');
-// const render = views(__dirname + '/views', {
-//   extension: 'ect',
-//   map: {
-//     ect: 'ect'
-//   }
-// })
 
 export const app = new Koa()
 ;(async () => {

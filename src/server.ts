@@ -1,8 +1,8 @@
 import 'module-alias/register'
 import * as dotenv from 'dotenv'
 dotenv.config({ path: `${__dirname}/../.env` })
-import { app } from '@/app'
-import { initSqlite } from '@/models/index'
+import { app } from './app'
+import { initSqlite } from './models/index'
 
 
 
@@ -14,7 +14,7 @@ else
 {
   // Start rest
   app.listen(process.env.PORT || 1337).on('listening', () => {
-    console.log('HTTP is listening on ' + process.env.PORT || 1337)
+    console.log('HTTP is listening on ' + (process.env.PORT || 1337))
   })
 }
 

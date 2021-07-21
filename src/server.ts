@@ -13,7 +13,7 @@ if(initSqlite() == null)
 else
 {
   // Start rest
-  app.listen(1337).on('listening', () => {
+  app.listen(process.env.PORT || 1337).on('listening', () => {
     console.log('HTTP is listening on 1337')
   })
 }

@@ -1,5 +1,5 @@
  
-Top15 backend for my Super Speedrun cs 1.6 server.
+Top15 backen d for my Super Speedrun cs 1.6 server.
 
 ## Environment variables
 

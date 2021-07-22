@@ -1,6 +1,11 @@
 body {
     font-family: Verdana, sans-serif;   
     margin: 0;
+    background-image: url(https://wallpapercave.com/wp/e2mlTpa.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: -50px;
+    color: #bbb
 }
 
 body::-webkit-scrollbar {
@@ -10,51 +15,65 @@ body::-webkit-scrollbar {
 .results {
     width: 100%;
     font-size: 14px;
+    border-spacing: 1px;
 }
 
 .results__row {
-    /* height: 6.3333%; */
 }
+
 .results__column {
-    /* height: 5%; */
-    height: 5%;
+    text-align:center;
+    background: rgba(0, 0, 0, 0.54);
+}
+
+.results__column-header {
+    background: rgba(54, 54, 54, 0.86);
+    outline: 1px solid rgba(99, 99, 99, 0.6);
 }
 
 .results__column-place {
     width: 5%;
 }
 
+.results__column-nick {
+    text-align: left;
+    padding-left: 3%;
+}
+
+.color-red {
+    color: rgb(194, 0, 0);
+}
+
+.results__column-header-nick {
+    text-align: center;
+    padding-left: 0;
+}
+
 .results__column-cp {
-    width: 5%;
+    width: 12%;
 }
 
 .results__column-gc {
-    width: 5%;
+    width: 12%;
 }
 
 .results__column-time {
-    width: 10%;
-}
-
-.results, .results th, .results td{ 
-    border: 1px solid lightgray;
-    border-collapse:collapse;
-    text-align:center;
+    width: 15%;
 }
 
 .results-categories {
     width: 100%;
     height: 5%;
-    border-spacing: 0;
-    border-collapse: collapse;
     font-size: 14px;
+    border-spacing: 1px;
 }
 
 .category-button {
     padding: 0;
-    border: 1px solid lightgray;
-    border-bottom: 0;
-    margin-left: 10px;
+    /* border-bottom: 0; */
+    /* margin-left: 10px; */
+    background: rgba(54, 54, 54, 0.86);
+    border: 1px solid #545454;
 }
 
 .category-button__link-wrap {
@@ -79,5 +98,7 @@ body::-webkit-scrollbar {
 }
 
 .category-button-selected {
-    background-color: lightgrey;
+    /* background-color: #ffffff3b; */
+    /* background-color: rgba(255, 255, 255, 0.137); */
+        /* text-decoration: underline; */
 }

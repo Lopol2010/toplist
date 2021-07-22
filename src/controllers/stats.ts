@@ -9,10 +9,12 @@ import { formatMS } from '@/helpers/time'
 export default class StatsController {
 
   @Get('/')
-  async stats(@Ctx() ctx: Context, @Query('mid') mid: number, @Query('cat') cat: number) {
+  async stats(@Ctx() ctx: Context, @Query('pid') pid: number, @Query('mid') mid: number, @Query('cat') cat: number, @Query('map') map: string) {
     let data = await results.getMapStats(mid, cat)
     data.results = data.results.map(v => { v.besttime = formatMS(v.besttime); return v; })
+    data.pid = pid
     data.mid = mid
+    data.map = map
     data.categories = [
       { name: 'Bhop', id: 6 },
       { name: '100fps', id: 0 },

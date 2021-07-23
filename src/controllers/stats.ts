@@ -23,6 +23,11 @@ export default class StatsController {
       { name: 'Low Gravity', id: 9 },
     ]
     let view = await ctx.render('top', { data: data })
+    let delay = await (new Promise((res, rej) => {
+      setTimeout(() => {
+        res(1)
+      }, 1000);
+    }))
     return view
   }
 

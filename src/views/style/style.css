@@ -1,15 +1,12 @@
 body {
     font-family: Verdana, sans-serif;   
     margin: 0;
-    background-image: url(https://wallpapercave.com/wp/e2mlTpa.jpg);
-    background-color: #0c0e0e;
+    background-image: url(/bg.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position-y: -50px;
     color: #bbb
 }
-
-body:after { content: "Loading..."; font-size: 54px; color: grey; }
 
 body::-webkit-scrollbar {
     display: none;

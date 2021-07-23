@@ -26,6 +26,7 @@ export const app = new Koa()
     })
     app.use(cors({ origin: '*' }))
     app.use(bodyParser())
+    app.use(serve(__dirname + '/../static'))
     app.use(serve(__dirname + '/views'))
     app.use(async (ctx, next) => { 
       ctx.render = renderer.render 

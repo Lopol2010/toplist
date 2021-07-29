@@ -6,7 +6,7 @@ export let results = {
 
       db.all("SELECT runners.id, nickname, besttime, checkpoints, gochecks \
       FROM `results` JOIN `runners` ON `runners`.id=`results`.id \
-      WHERE mid=(?) AND category=(?) AND besttime ORDER BY besttime ASC LIMIT 15",
+      WHERE mid=(?) AND category=(?) AND besttime ORDER BY besttime ASC, recorddate ASC LIMIT 15",
 
       [map_id, category_id],
 

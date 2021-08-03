@@ -11,7 +11,7 @@
     <% for res, i in @data.results : %>
         <tr class="results__row">
             <td class="results__column results__column-place"><%= i+1 %></td>
-            <td class="results__column results__column-nick <%- if @data.pid == res.id then 'color-red' %>"><%= res.nickname %></td>
+            <td class="results__column results__column-nick<%- if @data.pid == res.id then ' color-red' %>"><%= res.nickname %></td>
             <td class="results__column results__column-cp"><%= res.checkpoints %></td>
             <td class="results__column results__column-gc"><%= res.gochecks %></td>
             <td class="results__column results__column-time"><%= res.besttime %></td>
@@ -34,7 +34,7 @@
 <table class="results-categories" height="5%">
     <tr>
         <% for cat, i in @data.categories : %>
-                <td width="<%- 100/@data.categories.length %>%" class="category-button <%- if cat.id == @data.category then 'category-button-selected' %>">
+                <td width="<%- 100/@data.categories.length %>%" class="category-button<%- if cat.id == @data.category then ' category-button-selected' %>">
                     <div class="category-button__link-wrap">
                         <a class="category-button__link" href=<%- "/stats?mid=#{@data.mid}&cat=#{cat.id}" %>>
                             <% if cat.id == @data.category : %>

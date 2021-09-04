@@ -1,6 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const nodeExternals = require('webpack-node-externals');
+
 const devMode = process.env.NODE_ENV !== "production"
 
 module.exports = {
@@ -19,8 +21,16 @@ module.exports = {
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: [".ts", ".tsx", ".js", ".sass"]
+        extensions: [".ts", ".tsx", ".js", ".sass"],
     },
+    externalsPresets: { node: true }, // in order to ignore built-in modules like path, fs, etc.
+    externals: [nodeExternals()],
+    // externals: { 
+    //     'sqlite3':'commonjs sqlite3', 
+    //     'koahub-handlebars':'commonjs koahub-handlebars', 
+    //     'ect':'commonjs ect', 
+
+    // },
     module: {
         rules: [
             { test: /\.css/, },
@@ -33,17 +43,21 @@ module.exports = {
                 ],
 
             },
-            {
-                test: /\.m?js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
+            // {
+            //     test: /\.m?js$/,
+            //     exclude: /(node_modules|bower_components)/,
+            //     use: {
+            //         loader: 'babel-loader',
+            //         options: {
+            //             presets: ['@babel/preset-env']
+            //         }
+            //     }
+            // },
+            { 
+                test: /\.tsx?$/, 
+                loader: "ts-loader",
+                exclude: /node_modules/,
             },
-            { test: /\.tsx?$/, loader: "ts-loader" },
             // {
             //     test: /\.(html|hbs)$/i,
             //     loader: "html-loader",

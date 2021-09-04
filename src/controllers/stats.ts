@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { Context } from 'koa'
 import { Controller, Ctx, Get, Post, Query } from 'amala'
-import { results } from '@/models/results'
+import { results } from '../models/results'
 import _ = require('lodash')
-import { formatMS } from '@/helpers/time'
+import { formatMS } from '../helpers/time'
 
 @Controller('/stats')
 export default class StatsController {
@@ -22,7 +22,7 @@ export default class StatsController {
       { name: '2k', id: 8 },
       { name: 'Low Gravity', id: 9 },
     ]
-    let view = await ctx.render('top', { data: data })
+    let view = await ctx.erender('top', { data: data })
     return view
   }
 

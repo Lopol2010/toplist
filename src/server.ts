@@ -5,7 +5,6 @@ import { app } from './app'
 import { initSqlite } from './models/index'
 
 
-
 if(initSqlite() == null) 
 {
   console.error('sqlite3 init error! server will not start.')
@@ -13,8 +12,9 @@ if(initSqlite() == null)
 else
 {
   // Start rest
-  app.listen(process.env.PORT || 1337).on('listening', () => {
-    console.log('HTTP is listening on ' + (process.env.PORT || 1337))
+  let port = process.env.PORT || 1337
+  app.listen(port).on('listening', () => {
+    console.log('HTTP is listening on ' + port)
   })
 }
 

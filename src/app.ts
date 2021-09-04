@@ -4,11 +4,15 @@ import * as bodyParser from 'koa-bodyparser'
 import { bootstrapControllers } from 'amala'
 import * as cors from '@koa/cors'
 import * as Router from 'koa-router'
+import IndexController from './controllers/index'
 import StatsController from './controllers/stats'
+import InfoController from './controllers/info'
 
 const etag = require('koa-etag');
 var serve = require('koa-static')
 var ECT = require('ect')
+var hbs = require('koahub-handlebars');
+
 var renderer = ECT({ root : __dirname + '/views', ext : '.ect', watch: true })
 
 export const app = new Koa()
@@ -20,7 +24,9 @@ export const app = new Koa()
       router,
       basePath: '/',
       controllers: [
-        StatsController
+        IndexController,
+        StatsController,
+        InfoController,
         // __dirname + '/controllers/*'
       ],
       disableVersioning: true,
@@ -31,9 +37,12 @@ export const app = new Koa()
     app.use(serve(__dirname + '/../static', {maxage: 7 * 24 * 60 * 60 * 1000 }))
     app.use(serve(__dirname + '/views', {maxage: 7 * 24 * 60 * 60 * 1000}))
     app.use(async (ctx, next) => { 
-      ctx.render = renderer.render 
+      ctx.erender = renderer.render 
       return next()
     })
+    app.use(hbs.middleware({
+      viewPath: __dirname + '/views',
+    }))
     app.use(router.routes())
     app.use(router.allowedMethods())
   } catch (err) {

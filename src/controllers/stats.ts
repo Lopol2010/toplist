@@ -5,6 +5,8 @@ import { results } from '../models/results'
 import _ = require('lodash')
 import { formatMS } from '../helpers/time'
 
+import style from '../views/style/toplist.sass'
+
 @Controller('/stats')
 export default class StatsController {
 
@@ -22,6 +24,7 @@ export default class StatsController {
       { name: '2k', id: 8 },
       { name: 'Low Gravity', id: 9 },
     ]
+    console.log(style)
     let view = await ctx.erender('top', { data: data })
     return view
   }

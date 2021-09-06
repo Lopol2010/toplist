@@ -4,12 +4,12 @@
     // "target": "es6",
     // "lib": ["es2015"],
     // "moduleResolution": "node",
-    "sourceMap": true,
+    // "sourceMap": true,
     // "outDir": "dist",
     // "baseUrl": "src",
-    // // "paths": {
-    // //   "@/*": ["*"]
-    // // },
+    // "paths": {
+    //   "@/*": ["*"]
+    // },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },

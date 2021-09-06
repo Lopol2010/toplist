@@ -35,7 +35,7 @@ export const app = new Koa()
     app.use(bodyParser())
     app.use(etag());
     app.use(serve(__dirname + '/../static', {maxage: 7 * 24 * 60 * 60 * 1000 }))
-    app.use(serve(__dirname + '/views', {maxage: 7 * 24 * 60 * 60 * 1000}))
+    app.use(serve(__dirname + '/css', {maxage: 7 * 24 * 60 * 60 * 1000}))
     app.use(async (ctx, next) => { 
       ctx.erender = renderer.render 
       return next()

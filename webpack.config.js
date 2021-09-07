@@ -21,7 +21,7 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        assetModuleFilename: 'css/[name].css'
+        // assetModuleFilename: 'css/[name].css'
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".sass"],
@@ -42,7 +42,7 @@ module.exports = {
                     //         publicPath: 'css'
                     //     }
                     // },
-                    "extract-loader",
+                    // "extract-loader",
                     // "style-loader",
                     // {
                     //     loader: "file-loader",
@@ -54,20 +54,53 @@ module.exports = {
                     //     loader: MiniCssExtractPlugin.loader,
                     //     // options: { emit: false }
                     // },
-                    "css-loader",
+                    // "css-loader",
+                    // { loader: 'css-loader', options: { importLoaders: 1 } },
                     // "resolve-url-loader",
                     "sass-loader",
                 ],
-                type: "asset/resource"
+                type: "asset/resource",
+                generator: {
+                    filename: "css/[name].[contenthash:5].css",
+                }
             },
             {
-                test: /\.(hbs)/,
+                test: /\.(ejs)/,
                 use: [
-                    // "ref-loader"
-                    "handlebars-loader",
-                    "extract-loader",
-                    "html-loader",
+                    {
+                        // loader: "handlebars-loader",
+                        loader: "compile-ejs-loader",
+                        options: {
+                        }
+                    },
+                    // "extract-loader",
+                    // "ref-loader",
+                    // {
+                    //     loader: "html-loader",
+                    //     options: {
+                    //         sources: true
+                    //     }
+                    // },
                 ],
+                // rules: [
+                //     {
+                //         test: /\.s[ac]ss$/i,
+                //         use: [
+                //             {
+                //                 loader: MiniCssExtractPlugin.loader,
+                //                 // options: { emit: false }
+                //             },
+                //             { loader: 'css-loader', options: { importLoaders: 1 } },
+                //             "sass-loader",
+                //         ],
+                //         // type: "asset/resource",
+                //         // generator: {
+                //         //     'asset/resource': {
+                //         //         filename: "css/[name].css"
+                //         //     }
+                //         // }
+                //     }
+                // ],
                 // type: "asset/resource"
             },
             // {
@@ -88,11 +121,11 @@ module.exports = {
         ],
     },
     plugins: [
-        // new MiniCssExtractPlugin({
-        //     filename: "css/[name].css",
-        //     // filename: c => { console.log(c); return "[id].css" }
-        //     // chunkFilename: "[id].css",
-        // }),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css",
+            // filename: c => { console.log(c); return "[id].css" }
+            // chunkFilename: "[id].css",
+        }),
         // new CopyPlugin({
         //     patterns: [
         //         { from: "src/views/**/*.hbs", to: "views/[name][ext]" },

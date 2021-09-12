@@ -42,7 +42,7 @@
             <% data.categories.forEach((cat,i) => { %>
                     <td width="<%- 100/data.categories.length %>%" class="category-button<%- cat.id == data.category ? ' category-button-selected' : '' %>">
                         <div class="category-button__link-wrap">
-                            <a class="category-button__link" href=<%= `/stats?mid=${data.mid}&cat=${cat.id}` %>>
+                            <a class="category-button__link" href=<%= `/stats?mid=${data.mid}&cat=${cat.id}&pid=${data.pid}` %>>
                                 <% if (cat.id == data.category) { %>
                                     <u><%- '> '+cat.name+' <' %></u>
                                 <% } else { %>

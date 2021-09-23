@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/core": "^7.15.5", 
     "@babel/preset-env": "^7.15.4",
-    "@koa/cors": "^3.1.0",
+    "@koa/cors": "^3.1.0", 
     "@types/dotenv": "^8.2.0",
     "@types/jest": "^26.0.20",
     "@types/jsonwebtoken": "^8.5.2",

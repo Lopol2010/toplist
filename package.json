@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "distribute": "yarn build && node dist/server.js",
+    "distribute": "yarn install && yarn build && node dist/server.js",
     "develop": "concurrently -i -k -p \"[{name}]\" -n \"Webpack,Node\" -c \"reset,yellow.bold\" \"webpack -w\" \"yarn watch-js\"",
     "build": "webpack --no-devtool --mode=production",
     "watch-js": "nodemon -w ./**/* -e \"*\" dist/server.js",

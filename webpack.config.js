@@ -9,18 +9,14 @@ module.exports = {
     mode: 'development',
     // mode: 'production',
     target: 'node',
-
     entry: {
         server: './src/server.ts',
-        // info: './src/views/style/info.sass',
-        // toplist: './src/views/style/toplist.sass',
-        // 'info.hbs': './src/views/info.hbs'
     },
     devtool: 'inline-source-map',
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
+        clean: !devMode,
         // assetModuleFilename: 'css/[name].css'
     },
     resolve: {
@@ -68,40 +64,11 @@ module.exports = {
                 test: /\.(ejs)/,
                 use: [
                     {
-                        // loader: "handlebars-loader",
                         loader: "compile-ejs-loader",
                         options: {
                         }
                     },
-                    // "extract-loader",
-                    // "ref-loader",
-                    // {
-                    //     loader: "html-loader",
-                    //     options: {
-                    //         sources: true
-                    //     }
-                    // },
                 ],
-                // rules: [
-                //     {
-                //         test: /\.s[ac]ss$/i,
-                //         use: [
-                //             {
-                //                 loader: MiniCssExtractPlugin.loader,
-                //                 // options: { emit: false }
-                //             },
-                //             { loader: 'css-loader', options: { importLoaders: 1 } },
-                //             "sass-loader",
-                //         ],
-                //         // type: "asset/resource",
-                //         // generator: {
-                //         //     'asset/resource': {
-                //         //         filename: "css/[name].css"
-                //         //     }
-                //         // }
-                //     }
-                // ],
-                // type: "asset/resource"
             },
             // {
             //     test: /\.m?js$/,
@@ -123,15 +90,6 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: "css/[name].css",
-            // filename: c => { console.log(c); return "[id].css" }
-            // chunkFilename: "[id].css",
         }),
-        // new CopyPlugin({
-        //     patterns: [
-        //         { from: "src/views/**/*.hbs", to: "views/[name][ext]" },
-        //         { from: "views/**/*.ect", to: "../dist/[path][name][ext]", context: "src/" },
-        //         // { from: "static/*", to: "static/" },
-        //     ],
-        // }),
     ],
 };

@@ -1,6 +1,6 @@
 {
   "name": "super-speedrun-site",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Super Speedrun's Website",
   "main": "dist/server.js",
   "repository": "Lopol2010",
@@ -8,15 +8,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "distribute": "yarn build-ts && yarn cpx-prod && node dist/server.js",
-    "develop": "concurrently -i -k -p \"[{name}]\" -n \"Node,TypeScript,Copy-Views\" -c \"yellow.bold,cyan.bold,reset\" \"yarn watch-js\" \"yarn watch-ts\" \"yarn cpx-dev\"",
-    "build-ts": "tsc --skipLibCheck",
-    "watch-ts": "tsc -w --skipLibCheck",
-    "watch-js": "nodemon dist/server.js",
-    "cpx-dev": "cpx \"src/views/**\" dist/views --watch",
-    "cpx-prod": "cpx \"src/views/**\" dist/views",
-    "test": "yarn jest --forceExit",
-    "developw": "concurrently -i -k -p \"[{name}]\" -n \"Webpack,Node\" -c \"reset,yellow.bold\" \"webpack -w\" \"nodemon -w ./**/* -e \"*\" dist/server.js\""
+    "distribute": "yarn build && node dist/server.js",
+    "develop": "concurrently -i -k -p \"[{name}]\" -n \"Webpack,Node\" -c \"reset,yellow.bold\" \"webpack -w\" \"yarn watch-js\"",
+    "build": "webpack --no-devtool --mode=production",
+    "watch-js": "nodemon -w ./**/* -e \"*\" dist/server.js",
+    "test": "yarn jest --forceExit"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",

@@ -5,8 +5,8 @@ import { results } from '../models/results'
 import _ = require('lodash')
 import { formatMS } from '../helpers/time'
 
-let template = require('../views/top.ejs')
-let style = require('../views/style/toplist.sass')
+let template = require('../views/stats.ejs')
+let style = require('../views/style/stats.sass')
 
 @Controller('/stats')
 export default class StatsController {

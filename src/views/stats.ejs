@@ -25,7 +25,7 @@
         <% }) %>
         <!-- This empty row required to fix table rows being stretched on the whole screen, looks bad when there is two entries stretched like that. -->
         <% if (data.results.length < 15) { %>
-            <% for (let i of Array.from(Array((15-data.results.length-1)).keys())) { %>
+            <% for (let i of Array.from(Array((15-data.results.length)).keys())) { %>
                 <tr class="results__row">
                     <td class="results__column"><%- i + (data.results.length+1) %></td>
                     <td class="results__column"></td>
@@ -40,11 +40,11 @@
     <table class="results-categories" height="5%" width="100%">
         <tr>
             <% data.categories.forEach((cat,i) => { %>
-                    <td width="<%- 100/data.categories.length %>%" class="category-button<%- cat.id == data.category ? ' category-button-selected' : '' %>">
+                    <td width="<%- 100/data.categories.length %>%" class="category-button<%- cat.id == data.category ? ' category-button-pressed' : '' %>">
                         <div class="category-button__link-wrap">
                             <a class="category-button__link" href=<%= `/stats?mid=${data.mid}&cat=${cat.id}&pid=${data.pid}` %>>
                                 <% if (cat.id == data.category) { %>
-                                    <u><%- '> '+cat.name+' <' %></u>
+                                    <%- cat.name %>
                                 <% } else { %>
                                     <%- cat.name %>
                                 <% } %>

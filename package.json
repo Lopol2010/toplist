@@ -13,7 +13,7 @@
     "build": "webpack --no-devtool --mode=production",
     "watch-js": "nodemon -w ./**/* -e \"*\" dist/server.js",
     "test": "yarn jest --forceExit"
-  },
+  }, 
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.4",

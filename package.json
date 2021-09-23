@@ -34,7 +34,7 @@
     "extract-loader": "^5.1.0",
     "html-loader": "^2.1.2",
     "jest": "^27.0.6",
-    "koa-mount": "^4.0.0",
+    "koa-mount": "^4.0.0", 
     "mini-css-extract-plugin": "^2.2.2",
     "nodemon": "^2.0.9",
     "sass": "^1.39.0",

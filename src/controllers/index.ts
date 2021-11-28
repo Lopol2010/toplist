@@ -8,7 +8,7 @@ import _ = require('lodash')
 export default class IndexController {
   @Get('/')
   async stats(@Ctx() ctx: Context) {
-    return 'Чем больше самоубийц, тем меньше самоубийц.'
+    return 'УЧИТЬСЯ, УЧИТЬСЯ И ЕЩЕ РАЗ УЧИТЬСЯ...'
   }
 
 }
